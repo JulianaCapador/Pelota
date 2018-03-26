@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title> PELOTA REBOTANDO</title>
+<head>
+
+<body>
+
+	<canvas width = "2000" height="2000" id = "Lienzo"></canvas>
+	<script type = "text/javascript">
+		var cnv, ctx, pos_x = 0,pos_y =-1, img;
+
+		//Función que se ejecuta cada cierto tiempo
+		function anim(){
+			ctx.clearRect(0,0,2000,2000);
+			ctx.drawImage(img,pos_x,pos_y);
+			pos_x += 1;
+			setTimeout(anim,50);
+		}
+
+		window.onload = function(){
+			img = new Image();
+			img.src = 'basquetball.png';//nombre de la imagen
+			cnv = document.getElementById('Lienzo');
+			ctx = cnv.getContext ('2d');
+
+			//Incio de la animación
+			anim();
+		};
+
+	</script>
+</body>
+</html>
